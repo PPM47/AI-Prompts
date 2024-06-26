@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.img {
+  width: fit-content;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main:before {
+  /* background: radial-gradient(ellipse at top, #00a2ff, transparent 100%),
+            radial-gradient(ellipse at bottom, #0400ff, transparent 100%),
+            radial-gradient(ellipse at left, #00ffa9, transparent 100%),
+            radial-gradient(ellipse at right, #00ffa9, transparent 100%)
+            ; */
+            background: radial-gradient(circle, rgb(255, 255, 255) 100%, #ffffff 50%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: invert(1);
+}
+
+.main:after {
+  content: "";
+  /* background-image: url("/assets/images/grid.svg"); */
+  background: radial-gradient(circle, rgb(255, 255, 255) 100%, #ffffff 50%);
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.8;
+  /* filter: invert(1); */
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 100% 0%,
+      rgb(253, 58, 58) 0px,
+      transparent 30%
+    ),
+    radial-gradient(at 50% 0%, rgb(58, 253, 64) 0px, transparent 30%),
+    radial-gradient(at 0% 0%, rgb(0, 123, 255) 0px, transparent 30%),
+    radial-gradient(at 500% 50%, rgb(253, 58, 58) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgb(58, 253, 64) 0px, transparent 30%),
+    radial-gradient(at -100% 50%, rgb(0, 123, 255) 0px, transparent 50%),
+    radial-gradient(at 0% 60%, rgb(253, 58, 58) 0px, transparent 30%),
+    radial-gradient(at 50% 60%, rgb(58, 253, 185) 0px, transparent 30%),
+    radial-gradient(at 100% 60%, rgb(0, 123, 255) 0px, transparent 30%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(200px) saturate(140%);
+  top: 80px;
+  opacity: 0.3;
+ 
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+/* .navbar{
+  @apply border-current border-black;
+} */
+
+.app {
+  @apply relative z-10 flex justify-evenly items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+.app h2{
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+.next-error-h1{
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+.next-error-h1::after{
+  content: "";
+  position: relative;
+  left: 55%;
+  @apply  border border-gray-400;
+  
+}
+.nav-bacg{
+  @apply fixed z-30 top-0 left-0 w-screen h-16 backdrop-blur-md bg-white/30;
+}
+.nav_bar {
+  @apply sticky z-40 top-0 pt-3 pb-3 flex-between w-full;
+  /* background-color: rgb(100, 182, 182); */
+}
+.black_btn {
+  @apply rounded-full  bg-black py-1.5 px-5 text-white border-none transition-all hover:bg-white text-center text-sm font-inter flex items-center justify-center;
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 delay-500 drop-shadow-md;
+}
+.black_btn:hover {
+@apply backdrop-blur bg-gradient-to-r from-blue-300 to-cyan-300 transition delay-700 duration-300 ease-in-out drop-shadow-lg;
+}
+
+.outline_btn {
+  @apply rounded-full border-none py-1.5 px-5 transition-all  hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply bg-gradient-to-r from-amber-600 to-yellow-500 text-white drop-shadow-md;
+}
+.outline_btn:hover {
+  @apply bg-gradient-to-r from-amber-500 to-yellow-400 text-white drop-shadow-lg;
+}
+.head_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.green_gradient {
+  @apply bg-gradient-to-r from-green-600 via-green-500 to-blue-500 bg-clip-text text-transparent;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-sm font-medium focus:border-orange-500 focus:border-2 focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur px-3 py-3;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+/* prompt-card */
+.promptcard{
+  @apply w-full flex flex-col space-y-6 py-6 px-6 sm:columns-2 sm:gap-2 xl:columns-3 mt-8 max-w-2xl;
+}
+.edit-dele-con{
+  @apply flex-row gap-4;
+}
+.edit_delete_btn{
+  @apply rounded-full border border-gray-200 py-1 backdrop-blur bg-black/5;
+}
+/* .edit_delete_btn:hover{
+  @apply drop-shadow-md;
+} */
+/* tag_p */
+.tag_p{
+  @apply font-inter text-sm cursor-pointer w-fit;
+}
+.tag_p:hover{
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+/* Feed Component */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+.search_btn{
+  @apply font-satoshi font-semibold;
+}
+.search_btn:hover{
+  @apply drop-shadow-md;
+}
+.alrt-msg{
+  @apply absolute top-96 flex z-30 font-inter text-lg text-gray-700 self-center blue_gradient max-h-full max-w-full;
+}
+/* Form Component */
+.form-sec{
+  @apply w-full max-w-full flex-col;
+}
+.dropSm{
+  @apply drop-shadow-md;
+}
+.dropSs{
+  @apply drop-shadow-sm;
+}
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_cancel{
+@apply text-gray-500 font-satoshi font-semibold;
+}
+.form_cancel:hover{
+  @apply text-slate-950 drop-shadow-md;
+  }
+.form_post{
+  @apply font-satoshi font-semibold w-full;
+}
+.form_post:hover{
+  @apply drop-shadow-sm;
+}
+
+/* Nav Component */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-bold text-lg text-black tracking-wide;
+  /* text-transform: uppercase; */
+}
+.dropdown_Image_btn{
+  @apply rounded-full cursor-pointer animate-jump animate-ease-in animate-alternate animate-fill-forwards;
+}
+.dropdown {
+  @apply absolute right-0 top-20 mt-3 p-5 rounded-lg backdrop-blur-md bg-white/30 drop-shadow-md min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+
+/* PromptCard Component */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
